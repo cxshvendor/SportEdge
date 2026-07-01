@@ -1,0 +1,19 @@
+{
+  "name": "sportsedge",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "14.2.5",
+    "react": "^18",
+    "react-dom": "^18",
+    "@supabase/supabase-js": "^2.45.0",
+    "stripe": "^16.2.0",
+    "@stripe/stripe-js": "^4.1.0",
+    "lucide-react": "^0.408.0"
+  }
+}
