@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useRef, useCallback } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Menu, X, Newspaper, BarChart3, MessageSquare, TrendingUp, Layers, LogOut, Send, Loader2, RefreshCw, Zap, ChevronRight } from "lucide-react";
 import { supabaseBrowser } from "../../lib/supabase";
 import "../globals.css";
@@ -249,7 +249,7 @@ function ParlayTab({ userId }) {
 
 // ── Main Dashboard ────────────────────────────────────────────────────────────
 export default function Dashboard() {
-  const router = useRouter(); const params = useSearchParams();
+ const router = useRouter();
   const sb = supabaseBrowser();
   const [user, setUser] = useState(null); const [profile, setProfile] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false); const [tab, setTab] = useState("news"); const [paywall, setPaywall] = useState(false);
@@ -261,7 +261,7 @@ export default function Dashboard() {
       const { data: prof } = await sb.from("profiles").select("*").eq("id", data.user.id).single();
       setProfile(prof);
       const inactive = !prof || ["none","canceled","past_due"].includes(prof?.subscription_status);
-      if (inactive || params.get("paywall") === "1") setPaywall(true);
+if (inactive) setPaywall(true);
     });
   }, []);
 
